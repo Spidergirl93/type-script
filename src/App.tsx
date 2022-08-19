@@ -16,10 +16,17 @@ function App() {
     })
   };
 
+  const onDeleteItem = (itemId:string) => {
+    setItems(prevItems => {
+      const newItems = prevItems.filter(item => item.id !== itemId);
+      return newItems;
+    })
+  }
+
   return (
     <div>
       <TodoForm addHandler={addToItems} />
-      <Todos items={items} />
+      <Todos items={items} deleteItem={onDeleteItem} />
     </div>
   );
 }

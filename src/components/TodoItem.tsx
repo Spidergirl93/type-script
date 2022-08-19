@@ -4,14 +4,10 @@ import styles from "./TodoItem.module.css";
 
 const TodoItem: React.FC<{
   todo: Todo;
-  deleteItemHandler: (itemId: string) => void;
+  deleteItemHandler: () => void;
 }> = (props) => {
-  const deleteHandler = () => {
-    props.deleteItemHandler(props.todo.id);
-  };
-
   return (
-    <li className={styles.item} onClick={deleteHandler}>
+    <li className={styles.item} onClick={props.deleteItemHandler}>
       {props.todo.text}
     </li>
   );

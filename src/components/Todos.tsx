@@ -7,14 +7,10 @@ const Todos: React.FC<{
   items: Todo[];
   deleteItem: (itemId: string) => void;
 }> = (props) => {
-  const deleteHandler = (itemId: string) => {
-    props.deleteItem(itemId);
-  };
-
   return (
     <ul className={styles.todos}>
       {props.items.map((item) => (
-        <TodoItem key={item.id} todo={item} deleteItemHandler={deleteHandler} />
+        <TodoItem key={item.id} todo={item} deleteItemHandler={props.deleteItem.bind(null, item.id)} />
       ))}
     </ul>
   );

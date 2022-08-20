@@ -6,4 +6,4 @@ This project's purpose is to learn and practice basic react features and some bu
 
 ## Demo
 
-Visi [here](https://type-script-mu.vercel.app/) to checkout features.
+Visit [here](https://type-script-mu.vercel.app/) to checkout features.

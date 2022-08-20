@@ -1,9 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 
+import { TodosContext } from "../store/todos-context";
 
-import styles from './TodoForm.module.css';
+import styles from "./TodoForm.module.css";
 
-const TodoForm: React.FC<{addHandler: (itemText:string) => void}> = (props) => {
+const TodoForm: React.FC = () => {
+  const { addItem } = useContext(TodosContext);
+
   const userInput = useRef<HTMLInputElement>(null);
 
   const addHandler = (event: React.FormEvent) => {
@@ -11,13 +14,12 @@ const TodoForm: React.FC<{addHandler: (itemText:string) => void}> = (props) => {
 
     const finalInput = userInput.current!.value;
 
-    if (finalInput.trim().length === 0)
-    {
-        return;
+    if (finalInput.trim().length === 0) {
+      return;
     }
 
-    props.addHandler(finalInput);
-
+    // props.addHandler(finalInput);
+    addItem(finalInput);
   };
 
   return (
